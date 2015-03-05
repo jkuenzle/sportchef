@@ -1,15 +1,18 @@
 package ch.sportchef.server.services;
 
-import ch.sportchef.server.representations.User;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+
+import java.util.Optional;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Optional;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import ch.sportchef.server.dao.UserDAO;
+import ch.sportchef.server.representations.User;
 
 public class UserServiceShould {
 
@@ -17,7 +20,7 @@ public class UserServiceShould {
 
     @Before
     public void setUp() {
-        userService = new UserService();
+        userService = new UserService( mock( UserDAO.class ) );
     }
 
     @After

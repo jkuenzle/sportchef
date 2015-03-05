@@ -1,14 +1,26 @@
 package ch.sportchef.server.services;
 
-import ch.sportchef.server.representations.User;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-public class UserService implements Service {
+import org.skife.jdbi.v2.DBI;
 
-    private Map<Long, User> testUsers = new HashMap<Long, User>() {{
+import ch.sportchef.server.dao.UserDAO;
+import ch.sportchef.server.representations.User;
+
+public class UserService implements Service {
+	
+	public DBI dbi;
+    
+	private final UserDAO userDAO;
+
+    public UserService(final UserDAO userDAO) {
+    	super();
+        this.userDAO = userDAO;
+    }
+
+	private Map<Long, User> testUsers = new HashMap<Long, User>() {{
         put(Long.valueOf(1L), new User(1L, "John", "Doe", "+41 79 123 45 67", "john.doe@sportchef.ch"));
         put(Long.valueOf(2L), new User(2L, "Jane", "Doe", "+41 79 234 56 78", "jane.doe@sportchef.ch"));
     }};
