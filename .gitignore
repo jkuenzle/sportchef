@@ -4,3 +4,7 @@
 *.iml
 build/
 logs
+bin/
+.project
+.settings/
+server/.classpath
