@@ -1,0 +1,69 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'gradle-one-jar'
+apply plugin: 'jacoco'
+apply plugin: 'com.github.kt3k.coveralls'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// Year and month
+version = '15.04'
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+idea {
+    module {
+        sourceDirs += file('src/main/java')
+        testSourceDirs += file('src/test/java')
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+            'io.dropwizard:dropwizard-core:0.8.1',
+            'io.dropwizard:dropwizard-jdbi:0.8.1',
+            'io.dropwizard:dropwizard-client:0.8.1',
+            'io.dropwizard:dropwizard-auth:0.8.1',
+            'io.dropwizard:dropwizard-assets:0.8.1',
+            'io.dropwizard:dropwizard-metrics:0.8.1',
+            'io.dropwizard:dropwizard-migrations:0.8.1',
+            'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.5.3',
+            'com.h2database:h2:1.4.187'
+    )
+    testCompile (
+            'io.dropwizard:dropwizard-testing:0.8.1',
+            'junit:junit:4.12',
+            'org.powermock:powermock-core:1.6.2',
+            'org.powermock:powermock-api-mockito:1.6.2',
+            'org.powermock:powermock-module-junit4:1.6.2'
+    )
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.github.rholder:gradle-one-jar:1.0.4'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.3.1'
+    }
+}
+
+task oneJar(type: OneJar) {
+    mainClass = 'ch.sportchef.server.App'
+    archiveName = 'sportchef-server-' + version + '.jar'
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        html.enabled = true
+    }
+}

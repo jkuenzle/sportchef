@@ -1,0 +1,28 @@
+05-07 19:48:56 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "USER" nicht gefunden
+Table "USER" not found; SQL statement:
+/* UserDAO.readById */ SELECT * FROM user WHERE id = ? [42102-187]
+05-07 19:57:25 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "USER" nicht gefunden
+Table "USER" not found; SQL statement:
+/* UserDAO.readById */ SELECT * FROM user WHERE id = ? [42102-187]
+05-07 19:57:28 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "USER" nicht gefunden
+Table "USER" not found; SQL statement:
+/* UserDAO.readById */ SELECT * FROM user WHERE id = ? [42102-187]
+05-07 19:57:30 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "USER" nicht gefunden
+Table "USER" not found; SQL statement:
+/* UserDAO.readAll */ SELECT * FROM user [42102-187]
+05-07 19:57:39 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "USER" nicht gefunden
+Table "USER" not found; SQL statement:
+/* UserDAO.readById */ SELECT * FROM user WHERE id = ? [42102-187]
+05-07 19:57:46 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "USER" nicht gefunden
+Table "USER" not found; SQL statement:
+/* UserDAO.readAll */ SELECT * FROM user [42102-187]
+05-07 20:00:02 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Tabelle "USER" nicht gefunden
+Table "USER" not found; SQL statement:
+/* UserDAO.readAll */ SELECT * FROM user [42102-187]
