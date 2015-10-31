@@ -1,0 +1,34 @@
+server:
+  rootPath: '/api/*'
+
+database:
+  driverClass: org.h2.Driver
+  user: sa
+  password:
+  url: jdbc:h2:mem:sportchef-test
+  properties:
+    charSet: UTF-8
+  validationQuery: "/* Health Check */ SELECT 1"
+  migrateOnStart: true
+  dropAllBeforeMigration: true
+
+logging:
+  level: ALL
+  appenders:
+    - type: console
+      threshold: INFO
+      target: stdout
+    - type: file
+      currentLogFilename: ./logs/sportchef-test.log
+      archivedLogFilenamePattern: ./logs/sportchef-test-%d.log.gz
+      archivedFileCount: 5
+      timeZone: UTC
+
+healthCheck:
+  userService:
+    referenceUser:
+      id: 1
+      firstName: John
+      lastName: Doe
+      phone: +41 79 555 00 01
+      email: john.doe@sportchef.ch
